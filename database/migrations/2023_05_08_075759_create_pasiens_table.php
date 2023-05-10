@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('hp');
             $table->string('ktp');
-            $table->enum('antri', ['masuk', 'selesai'])->default('masuk');
+            $table->enum('status', ['antri', 'masuk', 'apotek', 'selesai'])->default('antri');
             $table->unsignedBigInteger('dokter_id');
             $table->foreign('dokter_id')->references('id')->on('dokters');
             $table->timestamps();
