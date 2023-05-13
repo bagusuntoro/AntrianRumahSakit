@@ -22,7 +22,7 @@ class ObatController extends Controller
                 'status' => '200',
                 'data' => $this->obatService->listObat()
             ]);
-        } catch (\Throwable $th) {
+        } catch (\Throwable $e) {
             return response()->json([
                 'message' => 'failed to get data',
                 'status' => '500',
@@ -45,7 +45,7 @@ class ObatController extends Controller
                 'status' => '200',
                 'data' => $this->obatService->createObat($request)
             ]);
-        } catch (\Throwable $th) {
+        } catch (\Throwable $e) {
             return response()->json([
                 'message' => 'failed to create data',
                 'status' => '500',
@@ -62,7 +62,7 @@ class ObatController extends Controller
                 'status' => '200',
                 'data' => $this->obatService->detailObat($id)
             ]);
-        } catch (\Throwable $th) {
+        } catch (\Throwable $e) {
             return response()->json([
                 'message' => 'failed to detail data',
                 'status' => '500',
@@ -85,7 +85,7 @@ class ObatController extends Controller
                 'status' => '200',
                 'data' => $this->obatService->updateObat($request, $id)
             ]);
-        } catch (\Throwable $th) {
+        } catch (\Throwable $e) {
             return response()->json([
                 'message' => 'failed to update data',
                 'status' => '500',
@@ -100,7 +100,7 @@ class ObatController extends Controller
             return response()->json([
                 'message' => $this->obatService->deleteObat($id)
             ]);
-        } catch (\Throwable $th) {
+        } catch (\Throwable $e) {
             return response()->json([
                 'message' => 'failde to delete data',
                 'status' => '500',

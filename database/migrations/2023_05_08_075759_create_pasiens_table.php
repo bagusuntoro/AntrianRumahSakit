@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('nama_pasien');
             $table->text('keluhan');
             $table->string('alamat');
-            $table->string('hp');
-            $table->string('ktp');
+            $table->string('no_hp');
+            $table->string('no_ktp');
             $table->enum('status', ['antri', 'masuk', 'apotek', 'selesai'])->default('antri');
             $table->unsignedBigInteger('dokter_id');
             $table->foreign('dokter_id')->references('id')->on('dokters');

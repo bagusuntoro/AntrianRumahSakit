@@ -15,8 +15,8 @@ class Pasien extends Model
         'nama_pasien',
         'keluhan',
         'alamat',
-        'hp',
-        'ktp',
+        'no_hp',
+        'no_ktp',
         'status',
         'dokter_id',
     ];

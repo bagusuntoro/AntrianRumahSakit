@@ -12,7 +12,7 @@ class Obat extends Model
 
     protected $fillable = [
         'nama_obat',
-        'khaisiat',
+        'khasiat',
         'aturan_minum',
     ];
 
