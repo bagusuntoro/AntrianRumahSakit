@@ -31,6 +31,55 @@ class DokterController extends Controller
             ]);
         }
     }
+
+    public function getDokterStandBy()
+    {
+        try {
+            $data = $this->dokterService->getDokterStandBy();
+            return response()->json([
+                'data' => $data,
+                'status' => '200'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Failed to get list data',
+                'status' => '500',
+                'error' => $e->getMessage()
+            ]);
+        }
+    }
+    public function getDokterCuti()
+    {
+        try {
+            $data = $this->dokterService->getDokterCuti();
+            return response()->json([
+                'data' => $data,
+                'status' => '200'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Failed to get list data',
+                'status' => '500',
+                'error' => $e->getMessage()
+            ]);
+        }
+    }
+    public function getDokterIstirahat()
+    {
+        try {
+            $data = $this->dokterService->getDokterIstirahat();
+            return response()->json([
+                'data' => $data,
+                'status' => '200'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Failed to get list data',
+                'status' => '500',
+                'error' => $e->getMessage()
+            ]);
+        }
+    }
     
     public function createDokter(Request $request)
     {
@@ -67,7 +116,7 @@ class DokterController extends Controller
                 'status' => '200',
                 'data' => $this->dokterService->selectDokter($request, $id)
             ]);
-        } catch (\Throwable $th) {
+        } catch (\Throwable $e) {
             return response()->json([
                 'message' => 'Failed to select data',
                 'status' => '500',
@@ -89,7 +138,7 @@ class DokterController extends Controller
                 'status' => '200',
                 'data' => $this->dokterService->setStatusDokter($request, $id)
             ]);
-        } catch (\Throwable $th) {
+        } catch (\Throwable $e) {
             return response()->json([
                 'message' => 'Failed to set data',
                 'status' => '500',
@@ -111,7 +160,7 @@ class DokterController extends Controller
                 'status' => '200',
                 'data' => $this->dokterService->updateDokter($request, $id)
             ]);
-        } catch (\Throwable $th) {
+        } catch (\Throwable $e) {
             return response()->json([
                 'message' => 'Failed to update data',
                 'status' => '500',
@@ -126,7 +175,7 @@ class DokterController extends Controller
             return response()->json([
                 'message'=> $this->dokterService->deleteDataDokter($id)
             ]);
-        } catch (\Throwable $th) {
+        } catch (\Throwable $e) {
             return response()->json([
                 'message' => 'Failed to delete data',
                 'status' => '500',

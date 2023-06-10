@@ -11,7 +11,6 @@ class Pasien extends Model
     protected $table = 'pasiens';
     
     protected $fillable = [
-        'nomor_antrian',
         'nama_pasien',
         'keluhan',
         'alamat',

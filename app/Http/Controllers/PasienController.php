@@ -31,6 +31,71 @@ class PasienController extends Controller
         }
     }
 
+    public function getPasienAntri()
+    {
+        try {
+            return response()->json([
+                'message' => 'success',
+                'status' => '200',
+                'data' => $this->pasienService->getPasienAntri()
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => 'failed to get data pasien',
+                'status' => '500',
+                'error' => $th->getMessage()
+            ]);
+        }
+    }
+    public function getPasienMasuk()
+    {
+        try {
+            return response()->json([
+                'message' => 'success',
+                'status' => '200',
+                'data' => $this->pasienService->getPasienMasuk()
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => 'failed to get data pasien',
+                'status' => '500',
+                'error' => $th->getMessage()
+            ]);
+        }
+    }
+    public function getPasienApotek()
+    {
+        try {
+            return response()->json([
+                'message' => 'success',
+                'status' => '200',
+                'data' => $this->pasienService->getPasienApotek()
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => 'failed to get data pasien',
+                'status' => '500',
+                'error' => $th->getMessage()
+            ]);
+        }
+    }
+    public function getPasienSelesai()
+    {
+        try {
+            return response()->json([
+                'message' => 'success',
+                'status' => '200',
+                'data' => $this->pasienService->getPasienSelesai()
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => 'failed to get data pasien',
+                'status' => '500',
+                'error' => $th->getMessage()
+            ]);
+        }
+    }
+
     public function detailPasien($id)
     {
         try {
@@ -52,13 +117,13 @@ class PasienController extends Controller
     {
         try {
             $validateData = $request->validate([
-                'nomor_antrian' => 'required|numeric',
+                // 'nomor_antrian' => 'required|numeric',
                 'nama_pasien' => 'required|string',
                 'keluhan' => 'required|string',
                 'alamat' => 'required|string',
                 'no_hp' => 'required|string',
                 'no_ktp' => 'required|string',
-                'status' => 'required|string',
+                // 'status' => 'required|string',
                 'dokter_id' => 'required|string'
             ]);
 

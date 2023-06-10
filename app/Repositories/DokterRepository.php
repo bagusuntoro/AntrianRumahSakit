@@ -17,6 +17,20 @@ class DokterRepository
     {
         return $this->dokter->get();
     }
+
+    public function getDokterStandBy()
+    {
+        return $this->dokter->where('status', 'standby')->get();
+    }
+    public function getDokterCuti()
+    {
+        return $this->dokter->where('status', 'cuti')->get();
+    }
+    public function getDokterIstirahat()
+    {
+        return $this->dokter->where('status', 'istirahat')->get();
+    }
+
     
     public function createDokter(array $data)
     {

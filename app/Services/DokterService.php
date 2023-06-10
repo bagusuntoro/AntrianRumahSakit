@@ -19,6 +19,19 @@ class DokterService
     {
         return $this->dokterRepository->listDokter();
     }
+
+    public function getDokterStandBy()
+    {
+        return $this->dokterRepository->getDokterStandBy();
+    }
+    public function getDokterCuti()
+    {
+        return $this->dokterRepository->getDokterCuti();
+    }
+    public function getDokterIstirahat()
+    {
+        return $this->dokterRepository->getDokterIstirahat();
+    }
     
     public function createDokter(Request $request)
     {

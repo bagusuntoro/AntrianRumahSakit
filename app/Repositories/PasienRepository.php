@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Pasien;
+use App\Models\Dokter;
 
 class PasienRepository
 {
@@ -18,6 +19,40 @@ class PasienRepository
         return $this->pasien->get();
     }
 
+    public function getPasienAntri()
+    {
+        return $this->pasien->join('dokters', 'pasiens.dokter_id', '=', 'dokters.id')
+            ->where('pasiens.status', 'antri')
+            ->select('pasiens.*', 'dokters.nama_dokter')
+            ->get();
+    }
+    
+    
+    
+
+
+    public function getPasienMasuk()
+    {
+        return $this->pasien->join('dokters', 'pasiens.dokter_id', '=', 'dokters.id')
+            ->where('pasiens.status', 'masuk')
+            ->select('pasiens.*', 'dokters.nama_dokter')
+            ->get();
+    }
+    public function getPasienApotek()
+    {
+        return $this->pasien->join('dokters', 'pasiens.dokter_id', '=', 'dokters.id')
+            ->where('pasiens.status', 'apotek')
+            ->select('pasiens.*', 'dokters.nama_dokter')
+            ->get();
+    }
+    public function getPasienSelesai()
+    {
+        return $this->pasien->join('dokters', 'pasiens.dokter_id', '=', 'dokters.id')
+            ->where('pasiens.status', 'selesai')
+            ->select('pasiens.*', 'dokters.nama_dokter')
+            ->get();
+    }
+
     public function detailPasien($id)
     {
         return $this->pasien->find($id);
@@ -31,7 +66,8 @@ class PasienRepository
     public function statusPasien($data, $id)
     {
         $dataPasien = $this->pasien->find($id);
-        $dataPasien->update($data);
+        $dataPasien->status = $data;
+        $dataPasien->save();
         return $dataPasien;
     }
 

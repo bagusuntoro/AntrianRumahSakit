@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama_dokter');
             $table->string('keahlian');
             $table->integer('jumlah_pasien')->default(0);
-            $table->enum('status', ['stanby', 'istirahat', 'cuti'])->default('stanby');
+            $table->enum('status', ['standby', 'istirahat', 'cuti'])->default('standby');
             $table->timestamps();
         });
     }
